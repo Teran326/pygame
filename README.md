@@ -1,1 +1,1 @@
-# pygame
+# just for training pygame
