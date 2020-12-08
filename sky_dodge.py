@@ -27,10 +27,10 @@ class Player(pygame.sprite.Sprite):
     def update(self, pressed_keys):
         if pressed_keys[K_UP]:
             self.rect.move_ip(0, -5)
-            #move_up_sound.play()
+            move_up_sound.play()
         if pressed_keys[K_DOWN]:
             self.rect.move_ip(0, 5)
-            #move_down_sound.play()
+            move_down_sound.play()
         if pressed_keys[K_LEFT]:
             self.rect.move_ip(-5, 0)
         if pressed_keys[K_RIGHT]:
@@ -128,17 +128,17 @@ all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 
 
-#pygame.mixer.music.load("sound/Sky_dodge_theme.ogg")
-#pygame.mixer.music.play(loops=-1)
-#pygame.mixer.music.set_volume(0.4)
+pygame.mixer.music.load("sound/Sky_dodge_theme.ogg")
+pygame.mixer.music.play(loops=-1)
+pygame.mixer.music.set_volume(0.4)
 
-#move_up_sound = pygame.mixer.Sound("sound/Jet_up.ogg")
-#move_down_sound = pygame.mixer.Sound("sound/Jet_down.ogg")
-#collision_sound = pygame.mixer.Sound("sound/Boom.ogg")
+move_up_sound = pygame.mixer.Sound("sound/Jet_up.ogg")
+move_down_sound = pygame.mixer.Sound("sound/Jet_down.ogg")
+collision_sound = pygame.mixer.Sound("sound/Boom.ogg")
 
-#move_up_sound.set_volume(0.6)
-#move_down_sound.set_volume(0.6)
-#collision_sound.set_volume(1.0)
+move_up_sound.set_volume(0.6)
+move_down_sound.set_volume(0.6)
+collision_sound.set_volume(1.0)
 
 running = True
 
@@ -185,12 +185,12 @@ while running:
     elif pygame.sprite.spritecollideany(player, bosses):
         player.kill()
 
-        #move_up_sound.stop()
-        #move_down_sound.stop()
-        #pygame.mixer.music.stop()
-        #pygame.time.delay(50)
-        #collision_sound.play()
-        #pygame.time.delay(500)
+        move_up_sound.stop()
+        move_down_sound.stop()
+        pygame.mixer.music.stop()
+        pygame.time.delay(50)
+        collision_sound.play()
+        pygame.time.delay(500)
 
         running = False
 
@@ -199,4 +199,4 @@ while running:
     clock.tick(30)
 
 
-#pygame.mixer.quit()
+pygame.mixer.quit()
